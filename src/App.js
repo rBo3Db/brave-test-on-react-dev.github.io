@@ -7,13 +7,12 @@ import OperatorList from './components/OperatorList';
 import {PayPage} from './components/PayPage';
 import NotFound from './components/NotFound'
 function App(props) {
-
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={OperatorList} />
-          <Route path="/payPage/:id" component={PayPage} />
+          <Route exact path="/" render={ () => <OperatorList operators={props.operators}/>} />
+          <Route path="/payPage/:name" component={PayPage} />
           <Route  component={NotFound} />
         </Switch>
       </div>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Operator = (props) => {
+    const link = `/payPage/${props.operator.name}`;
     return (
         <div onClick={() => props.handleClick(props.operator.id)}>
-           <p>{props.operator.name}</p>
+           <Link to={link}>{props.operator.name}</Link>
         </div>
     )
 }

@@ -1,27 +1,5 @@
 import React from 'react';
 import {Operator} from './Operator'
-const operators = [
-    {
-        "id": 1,
-        "name": "MTS",
-        "imgUrl": "../assets/MTS_logo_2015.svg" 
-    },
-    {
-        "id": 2,
-        "name": "Megafon",
-        "imgUrl": "../assets/MTS_logo_2015.svg" 
-    },
-    {
-        "id": 3,
-        "name": "Beeline",
-        "imgUrl": "../assets/MTS_logo_2015.svg" 
-    },
-    {
-        "id": 4,
-        "name": "Tele2",
-        "imgUrl": "../assets/MTS_logo_2015.svg" 
-    }
-]
 
 class OperatorList extends React.Component {
     constructor(props) {
@@ -34,7 +12,7 @@ class OperatorList extends React.Component {
     render() {
         return (
             <div>
-                {operators.map((operator) => <Operator operator={operator} handleClick={this.handleClick}/>)} 
+                {this.props.operators.map((operator) => <Operator key={operator.id} operator={operator} handleClick={this.handleClick}/>)} 
             </div>
         )
     }
