@@ -12,7 +12,7 @@ function App(props) {
       <div className="App">
         <Switch>
           <Route exact path="/" render={ () => <OperatorList operators={props.operators}/>} />
-          <Route path="/payPage/:name" component={PayPage} />
+          <Route path="/payPage/:name" render={ properties => <PayPage operators={props.operators} {...properties}/>} />
           <Route  component={NotFound} />
         </Switch>
       </div>
