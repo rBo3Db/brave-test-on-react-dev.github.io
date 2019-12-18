@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/brave-test-on-react-dev/static/js/main.b960988b.chunk.js",
+    "main.js.map": "/brave-test-on-react-dev/static/js/main.b960988b.chunk.js.map",
+    "runtime-main.js": "/brave-test-on-react-dev/static/js/runtime-main.489aa729.js",
+    "runtime-main.js.map": "/brave-test-on-react-dev/static/js/runtime-main.489aa729.js.map",
+    "static/js/2.21807d41.chunk.js": "/brave-test-on-react-dev/static/js/2.21807d41.chunk.js",
+    "static/js/2.21807d41.chunk.js.map": "/brave-test-on-react-dev/static/js/2.21807d41.chunk.js.map",
+    "index.html": "/brave-test-on-react-dev/index.html",
+    "precache-manifest.13811a5b89a61d661f5bd6b677c00101.js": "/brave-test-on-react-dev/precache-manifest.13811a5b89a61d661f5bd6b677c00101.js",
+    "service-worker.js": "/brave-test-on-react-dev/service-worker.js",
+    "static/js/2.21807d41.chunk.js.LICENSE": "/brave-test-on-react-dev/static/js/2.21807d41.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.489aa729.js",
+    "static/js/2.21807d41.chunk.js",
+    "static/js/main.b960988b.chunk.js"
+  ]
+}
