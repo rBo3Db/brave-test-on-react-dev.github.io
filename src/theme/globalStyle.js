@@ -15,8 +15,6 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         @media (max-width: 414px) {
             align-items: flex-start;
-        }
-        @media (max-width: 414px) {
             background-color: #222;
         }
     }

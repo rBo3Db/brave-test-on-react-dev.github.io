@@ -29,4 +29,7 @@ const PopupContent = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #222;
+    @media (max-width: 414px) {
+        align-self: flex-start;
+    }
 `

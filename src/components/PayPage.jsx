@@ -21,7 +21,6 @@ export class PayPage extends React.Component {
     componentDidMount () {
         const { name } = this.props.match.params;
         this.setState({operator: name})
-        console.log(this.props)
     }
     changeLoaderState(newIsShownState) {
         this.setState({
@@ -43,7 +42,6 @@ export class PayPage extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const responseTime = Math.round(Math.random() * 5) * 1000;
-        console.log(responseTime);
         this.changeLoaderState(true);
         new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -54,11 +52,10 @@ export class PayPage extends React.Component {
             result => {
                 this.changeLoaderState(false);
                 this.changePopupState('success');
-                console.log('success')},
+            },
             error => {
                 this.changeLoaderState(false);
                 this.changePopupState('error');
-                console.log(error);
             }
         );
     }

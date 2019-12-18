@@ -21,11 +21,9 @@ const Rotate = styled.div`
 
 export function Loader(props) {
     return (
-        <div>
-            <Overlay isShown={props.isShown} id="entire-overlay">
-                <Rotate>Loading...</Rotate>
-            </Overlay>
-        </div>
+        <Overlay isShown={props.isShown} id="entire-overlay">
+            <Rotate>Loading...</Rotate>
+        </Overlay>
     )
 }
 
