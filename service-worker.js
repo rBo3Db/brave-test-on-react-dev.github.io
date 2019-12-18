@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/brave-test-on-react-dev/precache-manifest.13811a5b89a61d661f5bd6b677c00101.js"
+  "/brave-test-on-react-dev/precache-manifest.c13066a60e5239e8ffb09356178e0011.js"
 );
 
 self.addEventListener('message', (event) => {
