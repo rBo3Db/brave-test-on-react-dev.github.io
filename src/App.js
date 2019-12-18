@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import OperatorList from './components/OperatorList';
 import {PayPage} from './components/PayPage';
