@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export function Overlay(props) {
+    return (
+        <EntireOverlayWrapper isShown={props.isShown}>{props.children}</EntireOverlayWrapper>
+    )
+}
+
 const EntireOverlayWrapper = styled.div`
     top: 0;
     bottom: 0;
@@ -12,9 +18,3 @@ const EntireOverlayWrapper = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 10`;
-
-export function Overlay(props) {
-    return (
-        <EntireOverlayWrapper isShown={props.isShown}>{props.children}</EntireOverlayWrapper>
-    )
-}

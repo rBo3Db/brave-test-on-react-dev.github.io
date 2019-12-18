@@ -2,16 +2,21 @@ import React from 'react';
 import InputMask from 'react-input-mask';
 import { Loader } from './Loader';
 import { Popup } from './Popup';
+import { Button } from './Button';
+import styled from 'styled-components';
 
 export class PayPage extends React.Component {
     constructor() {
         super();
         this.changeLoaderState = this.changeLoaderState.bind(this);
+        this.changePopupState = this.changePopupState.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.resetPopupState = this.resetPopupState.bind(this);
     }
     state = {
         operator: '',
-        isLoaderShow: false
+        isLoaderShow: false,
+        apiStatus: null,
     }
     componentDidMount () {
         const { name } = this.props.match.params;
@@ -24,9 +29,17 @@ export class PayPage extends React.Component {
             isLoaderShow: newIsShownState
         });
     }
-    showPopup() {
-
+    changePopupState(newApiStatus) {
+        this.setState({
+            ...this.state,
+            apiStatus: newApiStatus
+        });
     }
+    resetPopupState() {
+        this.changePopupState(null);
+    }
+    
+
     handleSubmit(event) {
         event.preventDefault();
         const responseTime = Math.round(Math.random() * 5) * 1000;
@@ -40,23 +53,28 @@ export class PayPage extends React.Component {
         .then(
             result => {
                 this.changeLoaderState(false);
+                this.changePopupState('success');
                 console.log('success')},
             error => {
                 this.changeLoaderState(false);
-                console.log('failure')
+                this.changePopupState('error');
+                console.log(error);
             }
         );
     }
     render() {
         return(
-            <div>
+            <PayForm>
                 <Loader isShown = {this.state.isLoaderShow}/>
-                <Popup />
-                <h1>
+                <Popup
+                    apiStatus = {this.state.apiStatus}
+                    resetPopupState={this.resetPopupState}    
+                />
+                <Header>
                     Pay for {this.state.operator} 
-                </h1>
+                </Header>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Please enter phone number</label>
+                    <p>Please enter phone number</p>
                     <InputMask
                         id="phoneNumber"
                         type="tel"
@@ -65,9 +83,10 @@ export class PayPage extends React.Component {
                         pattern="^\+7 \(\d{3}\) \d{3} \d{2} \d{2}$"
                         title="+7 (999) 999 99 99"
                         mask="+7 (999) 999 99 99"
+                        size="18"
                         required
                     />
-                    <label>Please enter payment amount</label>
+                    <p>Please enter payment amount</p>
                     <InputMask
                         id="paymentAmount"
                         type="num"
@@ -77,11 +96,27 @@ export class PayPage extends React.Component {
                         title="from 1 to 1000"
                         mask="9999"
                         maskChar=""
+                        size="18"
                         required
                     />
-                    <button type="submit">Continue</button>
+                    <Button type="submit">Continue</Button>
                 </form>
-            </div>
+            </PayForm>
         )
     }
 }
+
+const PayForm = styled.div`
+    background-color: white;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 3px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+
+`
+const Header = styled.h1`
+    align-self: center;
+    color: palevioletred;
+`
