@@ -19,9 +19,13 @@ const Rotate = styled.div`
     font-size: 1.2rem;
     `;
 
-export function Loader(props) {
+interface ILoaderProps {
+    isShown: boolean
+}
+
+export function Loader(props: ILoaderProps) {
     return (
-        <Overlay isShown={props.isShown} id="entire-overlay">
+        <Overlay isShown={props.isShown}>
             <Rotate>Loading...</Rotate>
         </Overlay>
     )

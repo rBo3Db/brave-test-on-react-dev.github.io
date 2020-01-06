@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export function Overlay(props) {
+interface IOverlayProps {
+    isShown: boolean,
+    // id: string;  id="entire-overlay"
+    children: ReactElement
+}
+
+export function Overlay(props: IOverlayProps) {
     return (
         <EntireOverlayWrapper isShown={props.isShown}>{props.children}</EntireOverlayWrapper>
     )
 }
 
-const EntireOverlayWrapper = styled.div`
+interface WrapperProps {
+    isShown: boolean
+}
+
+const EntireOverlayWrapper = styled.div<WrapperProps>`
     top: 0;
     bottom: 0;
     left: 0;

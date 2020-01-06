@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export const Button = (props) => {
+interface IButtonProps {
+    onClick?: (e: React.MouseEvent) => void,
+    children: React.ReactNode,
+    type?: "button" | "reset" | "submit" | undefined
+}
+
+export const Button = (props: IButtonProps) => {
     return (
         <AnyButton onClick={props.onClick} {...props}>
            {props.children}
         </AnyButton>
     )
 }
+
+// interface AnyButtonProps {
+//     type?: "button" | "reset" | "submit" | undefined,
+//     onClick: (e: React.MouseEvent) => void,
+//     children: React.ReactNode,
+// }
 
 // Define our button, but with the use of props.theme this time
 const AnyButton = styled.button`

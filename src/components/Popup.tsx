@@ -4,9 +4,15 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export function Popup(props) {
+
+interface IPopupProps {
+    apiStatus: string,
+    resetPopupState:  (e: React.MouseEvent) => void,
+}
+
+export function Popup(props: IPopupProps) {
     return ( 
-        <Overlay isShown={!!props.apiStatus} id="entire-overlay">
+        <Overlay isShown={!!props.apiStatus}>
             <PopupContent>
                 <StatusText>
                     {props.apiStatus==='success' && 'Your payment was successfull'}

@@ -5,32 +5,32 @@ import { Popup } from './Popup';
 import { Button } from './Button';
 import styled from 'styled-components';
 
-export function PayPage(props) {
+export function PayPage(props: {match: {params: {name: string}}}) {
     React.useState();
 
     const [operator, setOperator] = useState('');
     const [isLoaderShow, setLoaderShow] = useState(false);
-    const [apiStatus, setApiStatus] = useState(null);
+    const [apiStatus, setApiStatus] = useState('');
 
     useEffect(() => {
         const { name } = props.match.params;
         setOperator(name);
     },[])
 
-    const changeLoaderState = (newIsShownState) => {
+    const changeLoaderState = (newIsShownState: boolean) => {
         setLoaderShow(newIsShownState);
     }
-    const changePopupState = (newApiStatus) => {
+    const changePopupState = (newApiStatus: string) => {
         setApiStatus(newApiStatus);
     }
     const resetPopupState = () => {
-        changePopupState(null);
+        changePopupState('');
     }
     
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
-        const responseTime = Math.round(Math.random() * 5) * 1000;
+        const responseTime: number = Math.round(Math.random() * 5) * 1000;
         changeLoaderState(true);
         new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -69,7 +69,6 @@ export function PayPage(props) {
                     pattern="^\+7 \(\d{3}\) \d{3} \d{2} \d{2}$"
                     title="+7 (999) 999 99 99"
                     mask="+7 (999) 999 99 99"
-                    size="18"
                     required
                 />
                 <p>Please enter payment amount</p>
@@ -82,7 +81,6 @@ export function PayPage(props) {
                     title="from 1 to 1000"
                     mask="9999"
                     maskChar=""
-                    size="18"
                     required
                 />
                 <Button type="submit">Continue</Button>
